@@ -9,7 +9,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-    
+    <div id="app">
+        <header>
+            <h1 v-text="sitename"></h1>
+        </header>
+        <main>
+            <figure>
+                <img v-bind:src="product.image">
+            </figure>
+            <div style="margin-left: 300px; margin-top:-200px;">
+            <h2 v-text="product.subject"></h2>
+            <p v-html="product.location"></p>
+            <p>price{{product.price}}</p>
+            </div>
+        </main>
+    </div>   
     
     
 </body>
