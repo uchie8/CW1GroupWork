@@ -11,22 +11,70 @@
 <body>
     <div id="app">
         <header>
-            <h1 v-text="sitename"></h1>
+            <h1 v-text="sitename" style="margin-left: 35px;"></h1>
         </header>
         <main>
             <figure>
                 <img v-bind:src="product.image">
             </figure>
             <div style="margin-left: 300px; margin-top:-200px;">
-            <h2 v-text="product.subject"></h2>
+            <h1 v-text="product.subject"></h1>
             <p v-html="product.location"></p>
-            <p>price{{product.price}}</p>
+            <p>price:{{product.price}}</p>
+            <p>Number of spaces:<button @click=showCheckout>
+                {{ cartItemCount }}
+
+           <span class="fa fa-cart-plus"></span> checkout
+          
             </div>
+
+            <button v-on:click ="AddToCart" v-if="canAddToCart" style="margin-top: 20px;margin-left: 45px;">Add To Cart</button>
+            <button disabled="disabled" v-else>Add To Cart</button>
+            
         </main>
     </div>  
     
 <script>
-    
+      var webstore = new Vue({
+                el:'#app',
+                data:{
+                    sitename: 'After School Club',
+                    product:{
+                        subject:"Math",
+                        location:"London",
+                        price:200,
+                        image:"image/image.png",
+                        availableInventory: 5
+                        
+                    },
+                
+                    cart:[] //array to store items
+
+                },
+                methods:{
+                    AddToCart:function(){
+                      console.log('testing');
+                      this.cart.push(this.product.id);
+                    },
+                    showCheckout: function(){
+                        this.showProduct= this.showProduct ? false : true;
+                    }
+                },
+                computed: {
+                    cartItemCount: function(){
+                        return this.cart.length || '';
+                    },
+                    canAddToCart: function(){
+                        return this.product.availableInventory > this.cartItemCount;
+                    }
+                }
+
+            
+             
+            })
+
+            
+
 </script>
     
     
