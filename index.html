@@ -23,14 +23,11 @@
             <p>price:{{product.price}}</p>
             <p>Number of spaces:<button @click=showCheckout>
                 {{ cartItemCount }}
-
-           <span class="fa fa-cart-plus"></span> checkout
           
             </div>
 
             <button v-on:click ="AddToCart" v-if="canAddToCart" style="margin-top: 20px;margin-left: 45px;">Add To Cart</button>
-            <button disabled="disabled" v-else>Add To Cart</button>
-            
+            <button disabled="disabled" v-else style="margin-top: 20px;margin-left: 45px;" >Add To Cart</button>
         </main>
     </div>  
     
@@ -48,24 +45,67 @@
                         
                     },
                 
-                    cart:[] //array to store items
+                    // cart:[] //array to store items
 
+                    cart: [
+                        {
+                            subject:"Math",
+                            location:"London",
+                            price:200,
+                            image:"image/image.png",
+                            availableInventory: 5
+                            
+                        },
+                        {
+                            subject:"Math",
+                            location:"London",
+                            price:200,
+                            image:"image/image.png",
+                            availableInventory: 5
+                            
+                        },
+                        {
+                            subject:"Math",
+                            location:"London",
+                            price:200,
+                            image:"image/image.png",
+                            availableInventory: 5
+                            
+                        },
+                        {
+                            subject:"Math",
+                            location:"London",
+                            price:200,
+                            image:"image/image.png",
+                            availableInventory: 5
+                            
+                        },
+                        {
+                            subject:"Math",
+                            location:"London",
+                            price:200,
+                            image:"image/image.png",
+                            availableInventory: 5
+                            
+                        }
+                    ]
                 },
                 methods:{
                     AddToCart:function(){
                       console.log('testing');
-                      this.cart.push(this.product.id);
+                      this.cart.splice(this.product.id,1);
                     },
                     showCheckout: function(){
                         this.showProduct= this.showProduct ? false : true;
-                    }
+                    },
+                 
                 },
                 computed: {
                     cartItemCount: function(){
                         return this.cart.length || '';
                     },
                     canAddToCart: function(){
-                        return this.product.availableInventory > this.cartItemCount;
+                        return this.cartItemCount > 0;
                     }
                 }
 
