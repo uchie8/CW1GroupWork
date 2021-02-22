@@ -17,14 +17,14 @@
             <figure>
                 <img v-bind:src="product.image">
             </figure>
-            <div style="margin-left: 300px; margin-top:-200px;">
-            <h1 v-text="product.subject"></h1>
-            <p v-html="product.location"></p>
-            <p>price:{{product.price}}</p>
-            <p>Number of spaces:<button @click=showCheckout>
-                {{ cartItemCount }}
-          
-            </div>
+                <div style="margin-left: 300px; margin-top:-200px;">
+                <h1 v-text="product.subject"></h1>
+                <p v-html="product.location"></p>
+                <p>price:{{product.price}}</p>
+                <p>Number of spaces:<button @click=showCheckout>
+                    {{ cartItemCount }}
+            
+                </div>
 
             <button v-on:click ="AddToCart" v-if="canAddToCart" style="margin-top: 20px;margin-left: 45px;">Add To Cart</button>
             <button disabled="disabled" v-else style="margin-top: 20px;margin-left: 45px;" >Add To Cart</button>
@@ -49,44 +49,19 @@
 
                     cart: [
                         {
-                            subject:"Math",
-                            location:"London",
-                            price:200,
-                            image:"image/image.png",
-                            availableInventory: 5
-                            
+                          sit:1 
                         },
                         {
-                            subject:"Math",
-                            location:"London",
-                            price:200,
-                            image:"image/image.png",
-                            availableInventory: 5
-                            
+                          sit:2 
                         },
                         {
-                            subject:"Math",
-                            location:"London",
-                            price:200,
-                            image:"image/image.png",
-                            availableInventory: 5
-                            
+                          sit:3
                         },
                         {
-                            subject:"Math",
-                            location:"London",
-                            price:200,
-                            image:"image/image.png",
-                            availableInventory: 5
-                            
+                          sit:4
                         },
                         {
-                            subject:"Math",
-                            location:"London",
-                            price:200,
-                            image:"image/image.png",
-                            availableInventory: 5
-                            
+                          sit:5 
                         }
                     ]
                 },
